@@ -17,7 +17,6 @@ mkdir -p $__tmp_cert_dir
 function usage
 {
   echo "Self-signed certificate helper."
-  echo "Creates certificates to ${__cert_dir}-directory."
   echo ""
   echo "Usage: $0 <command> <command-args>"
   echo ""
@@ -29,7 +28,6 @@ function usage
   echo "  print-ca-cert <domain>                                           - Print CA certificate for given domain."
   echo "  print-cert <domain> <basename>                                   - Print certificate for given domain and basename."
   echo "  cat-certs <domain> <basename>                                    - Cat certificate and CA certificate for given domain and basename."
-  echo "  rm-certs                                                         - Delete ${__cert_dir}-directory."
   exit 1
 }
 
@@ -40,12 +38,6 @@ function error
 }
 
 set -e
-
-function rmCertDir
-{
-  rm -rf $__cert_dir
-  echo "$__cert_dir deleted."
-}
 
 function catCerts
 {
@@ -292,9 +284,6 @@ case "$1" in
       ;;
     add-ca-trusted)
       addCACertAsTrusted $*
-      ;;
-    rm-certs)
-      rmCertDir
       ;;
     *)
       usage
