@@ -1,0 +1,5 @@
+= Self-signed certificate helper tool
+
+link:self-signed-cert.sh[self-signed-cert.sh] is a small script to ease working with self-signed certificates.
+
+
